@@ -31,7 +31,6 @@ body #root {
 
   width: 100%;
   padding: 3.4rem;
-  /* height: 650px; */
   height: max-content;
   background-color: var(--White);
   border-radius: 23px;
@@ -122,9 +121,7 @@ form div.submit-btn button {
   justify-content: center;
   align-items: center;
 }
-form div.submit-btn button img {
-  width: 1.5rem;
-}
+
 form div.submit-btn button:hover {
   background-color: var(--Off-black);
 }
@@ -174,6 +171,9 @@ form div.submit-btn button:hover {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     padding: 0.7rem;
+  }
+  form div.submit-btn button img {
+    width: 1.5rem;
   }
   .result {
     font-size: 3.25rem;
