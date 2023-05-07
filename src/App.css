@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
+:root {
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body {
+  background: var(--Off-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 102vh;
+}
+body #root {
+  max-width: 840px;
+
+  width: 100%;
+  padding: 3.4rem;
+  /* height: 650px; */
+  height: max-content;
+  background-color: var(--White);
+  border-radius: 23px;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  -ms-border-radius: 23px;
+  -o-border-radius: 23px;
+  border-bottom-right-radius: 200px;
+}
+
+form div.input-fields {
+  display: flex;
+  gap: 2.2rem;
+  margin-bottom: 0.3rem;
+}
+form div.input-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+p:has(+ input) {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+}
+input {
+  max-width: 9.88rem;
+  width: 100%;
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--Light-grey);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--Smokey-grey);
+  outline: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+input:focus {
+  border: 1px solid var(--Purple);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input + span {
+  color: var(--Light-red);
+  font-style: italic;
+  text-align: center;
+}
+form div.submit-btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+form div.submit-btn hr {
+  flex: 1;
+}
+form div.submit-btn button {
+  background-color: var(--Purple);
+  cursor: pointer;
+  padding: 1.5rem;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  -moz-transition: background-color 0.3s ease-in-out;
+  -ms-transition: background-color 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form div.submit-btn button img {
+  width: 1.5rem;
+}
+form div.submit-btn button:hover {
+  background-color: var(--Off-black);
+}
+.result {
+  font-size: 6.5rem;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--Off-black);
+  margin-top: -1.5rem;
+}
+.result p:nth-of-type(2) {
+  margin: -2.5rem 0;
+}
+.result p span {
+  color: var(--Purple);
+  margin-right: 10px;
+}
+@media (max-width: 768px) {
+  body {
+    padding: 5.5rem 1rem;
+  }
+  body #root {
+    padding: 3rem 1.5rem;
+    border-bottom-right-radius: 100px;
+  }
+  form div.input-fields {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  form div.input-fields label {
+    gap: 0.1rem;
+  }
+  p:has(+ input) {
+    font-size: 0.7rem;
+  }
+  input {
+    padding: 0.8rem 0.9rem;
+    font-size: 1.3rem;
+  }
+  form div.submit-btn button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    padding: 0.7rem;
+  }
+  .result {
+    font-size: 3.25rem;
+    margin-top: 0.4rem;
+  }
+  .result p:nth-of-type(2) {
+    margin: 0;
+  }
+}
