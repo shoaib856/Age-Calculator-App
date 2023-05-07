@@ -49,13 +49,13 @@ function App() {
       );
       setMonthResult(
         Math.abs(
-          new Date(Date.now()).toLocaleString("en-Us", { day: "numeric" }) -
+          new Date(Date.now()).toLocaleString("en-Us", { month: "numeric" }) -
             values.month
         )
       );
       setDayResult(
         Math.abs(
-          new Date(Date.now()).toLocaleString("en-Us", { month: "numeric" }) -
+          new Date(Date.now()).toLocaleString("en-Us", { day: "numeric" }) -
             values.day
         )
       );
