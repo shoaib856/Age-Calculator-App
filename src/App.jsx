@@ -43,24 +43,24 @@ function App() {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      setYearResult(
-        new Date(Date.now()).toLocaleString("en-Us", { year: "numeric" }) -
-          values.year
-      );
-      setMonthResult(
-        Math.abs(
-          new Date(Date.now()).toLocaleString("en-Us", { month: "numeric" }) -
-            values.month
-        )
-      );
-      setDayResult(
-        Math.abs(
-          new Date(Date.now()).toLocaleString("en-Us", { day: "numeric" }) -
-            values.day
-        )
-      );
+      const { day, month, year } = values;
+      const today = new Date();
+      const birthDate = new Date(year, month - 1, day);
+      const age = today.getFullYear() - birthDate.getFullYear();
+      const monthAge = today.getMonth() - birthDate.getMonth();
+      const dayAge = today.getDate() - birthDate.getDate();
+      if (monthAge < 0 || (monthAge === 0 && dayAge < 0)) {
+        setYearResult(age - 1);
+        setMonthResult(12 + monthAge);
+        setDayResult(31 - dayAge);
+      } else {
+        setYearResult(age);
+        setMonthResult(monthAge);
+        setDayResult(dayAge);
+      }
     },
   });
+
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
