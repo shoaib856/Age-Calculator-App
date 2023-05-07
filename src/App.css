@@ -39,7 +39,7 @@ body #root {
   -moz-border-radius: 23px;
   -ms-border-radius: 23px;
   -o-border-radius: 23px;
-  border-bottom-right-radius: 200px;
+  border-bottom-right-radius: 200px !important;
 }
 
 form div.input-fields {
@@ -148,7 +148,7 @@ form div.submit-btn button:hover {
   }
   body #root {
     padding: 3rem 1.5rem;
-    border-bottom-right-radius: 100px;
+    border-bottom-right-radius: 100px !important;
   }
   form div.input-fields {
     gap: 1rem;
