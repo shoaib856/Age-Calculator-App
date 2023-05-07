@@ -3,6 +3,7 @@ import "./App.css";
 import submitBtn from "./assets/images/icon-arrow.svg";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import moment from "moment";
 
 const initialValues = {
   day: "",
@@ -44,15 +45,19 @@ function App() {
     validationSchema,
     onSubmit: (values) => {
       const { day, month, year } = values;
-      const today = new Date();
-      const birthDate = new Date(year, month - 1, day);
-      const age = today.getFullYear() - birthDate.getFullYear();
-      const monthAge = today.getMonth() - birthDate.getMonth();
-      const dayAge = today.getDate() - birthDate.getDate();
-      if (monthAge < 0 || (monthAge === 0 && dayAge < 0)) {
-        setYearResult(age - 1);
-        setMonthResult(12 + monthAge);
-        setDayResult(31 - dayAge);
+      const today = moment();
+      const birthDate = moment({ year, month: month - 1, day });
+      const age = today.diff(birthDate, "years");
+      const monthAge = today.diff(birthDate, "months") % 12;
+      const dayAge = today.diff(birthDate, "days") % 30;
+      if (dayAge < 0) {
+        const lastMonth = moment().subtract(1, "month");
+        const daysInMonth = lastMonth.daysInMonth();
+        setYearResult(age);
+        setMonthResult(
+          lastMonth.diff(birthDate.add(age, "years").add(1, "month"), "months")
+        );
+        setDayResult(daysInMonth + dayAge);
       } else {
         setYearResult(age);
         setMonthResult(monthAge);
